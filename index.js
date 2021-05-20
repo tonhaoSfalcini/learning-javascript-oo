@@ -1,10 +1,10 @@
 import {Cliente} from "./Cliente.js";
 import {ContaCorrente} from "./ContaCorrente.js";
 
-const cco1 = new ContaCorrente();
-cco1.numero = 109916;
-cco1.agencia = 3271;
-cco1.cliente = new Cliente("Tonhao", 1061967239);
+let qtdeContas = 0;
+
+const c1 = new Cliente("Tonhao", 1061967239);
+const cco1 = new ContaCorrente(109916, 3271, c1);
 
 console.log(cco1);
 console.log();
@@ -22,10 +22,8 @@ console.log();
 console.log();
 console.log();
 
-const cco2 = new ContaCorrente();
-cco2.agencia = 3271;
-cco2.numero = 129054;
-cco2.cliente = new Cliente("Thay", 812965256);
+const c2 = new Cliente("Thay", 812965256);
+const cco2 = new ContaCorrente(129054, 3271, c2);
 
 console.log(cco2);
 console.log();
@@ -37,6 +35,7 @@ console.log();
 
 
 cco1.transferir(1000, cco2);
+console.log(`Quantidade de contas abertas: ${ContaCorrente.qtdeContas}`);
 console.log(cco1);
 console.log();
 console.log(cco2);

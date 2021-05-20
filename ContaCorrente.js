@@ -1,12 +1,22 @@
 import { Cliente } from "./Cliente.js";
 
 export class ContaCorrente{
+    static qtdeContas = 0;
+
     agencia;
     numero;
     
     
     _cliente;
     _saldo = 0;
+
+    constructor(numero, agencia, cliente){
+        this.numero = numero;
+        this.agencia = agencia;
+        this.cliente = cliente;
+
+        ContaCorrente.qtdeContas++;
+    }
 
     set cliente(cli){
         if(cli instanceof Cliente) this._cliente = cli
