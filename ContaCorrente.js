@@ -1,10 +1,24 @@
+import { Cliente } from "./Cliente.js";
+
 export class ContaCorrente{
     agencia;
     numero;
-    cliente;
-
-
+    
+    
+    _cliente;
     _saldo = 0;
+
+    set cliente(cli){
+        if(cli instanceof Cliente) this._cliente = cli
+    }
+
+    get cliente(){
+        return this._cliente;
+    }
+
+    get saldo(){
+        return this.saldo;
+    }
 
     depositar(valor){
         console.log(`>> Ordem de depósito de R$ ${valor} da conta ${this.numero} <<`);
@@ -14,6 +28,7 @@ export class ContaCorrente{
         }
         this._saldo = this._saldo+valor;
         console.log(`Saldo restante: R$ ${this._saldo}`);
+        console.log();
     }
     
     sacar(valor){
@@ -25,6 +40,7 @@ export class ContaCorrente{
         this._saldo = this._saldo-valor;
         console.log(`Saque efetuado!`);
         console.log(`Saldo restante: R$ ${this._saldo}`);
+        console.log();
         return valor;
     }
     
@@ -33,5 +49,7 @@ export class ContaCorrente{
         const valorSacado = this.sacar(valor);
         conta.depositar(valorSacado);
         console.log(`Transferênia realizada com sucesso!`);
+        console.log();
     }
+
 }
