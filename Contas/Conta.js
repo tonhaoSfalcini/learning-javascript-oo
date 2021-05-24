@@ -3,7 +3,9 @@ export class Conta{
         this._agencia = agencia;
         this._cliente = cliente;
         this._saldo = saldoInicial
-
+        if(this.constructor == Conta){
+            console.log("Uso indevido. A classe Conta não deve ser instanciada");
+        }
     }
 
     set cliente(cli){
