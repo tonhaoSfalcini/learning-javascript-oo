@@ -32,7 +32,7 @@ export class Conta{
     }
     
     sacar(valor){
-        return this._sacar(valor, 1);
+        throw new Error("Uso indevido. Este método deverá ser sobrescrito.");
     }
 
     _sacar(valor, taxa){
@@ -50,6 +50,6 @@ export class Conta{
     }
 
     teste(){
-        console.log(`Teste na conta`);
+        console.log(this);
     }
 }
