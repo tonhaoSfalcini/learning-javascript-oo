@@ -1,21 +1,9 @@
-import { Cliente } from "./Cliente.js";
+export class Conta{
+    constructor(agencia, cliente, saldoInicial){
+        this._agencia = agencia;
+        this._cliente = cliente;
+        this._saldo = saldoInicial
 
-export class ContaCorrente{
-    static qtdeContas = 0;
-
-    agencia;
-    numero;
-    
-    
-    _cliente;
-    _saldo = 0;
-
-    constructor(numero, agencia, cliente){
-        this.numero = numero;
-        this.agencia = agencia;
-        this.cliente = cliente;
-
-        ContaCorrente.qtdeContas++;
     }
 
     set cliente(cli){
@@ -53,13 +41,8 @@ export class ContaCorrente{
         console.log();
         return valor;
     }
-    
-    transferir(valor, conta){
-        console.log(`>> Ordem de transferência de R$ ${valor} da conta ${this.numero}  para a ${conta.numero}<<`);
-        const valorSacado = this.sacar(valor);
-        conta.depositar(valorSacado);
-        console.log(`Transferênia realizada com sucesso!`);
-        console.log();
-    }
 
+    teste(){
+        console.log(`Teste na conta`);
+    }
 }
