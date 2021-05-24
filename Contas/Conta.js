@@ -30,12 +30,17 @@ export class Conta{
     }
     
     sacar(valor){
+        return this._sacar(valor, 1);
+    }
+
+    _sacar(valor, taxa){
         console.log(`>> Ordem de saque de R$ ${valor} da conta ${this.numero} <<`);
-        if(this._saldo < valor){
+        const valorSacado = taxa * valor;
+        if(this._saldo < valorSacado){
             console.log("Saldo insuficiente");
             return;
         }
-        this._saldo = this._saldo-valor;
+        this._saldo = this._saldo - valorSacado;
         console.log(`Saque efetuado!`);
         console.log(`Saldo restante: R$ ${this._saldo}`);
         console.log();
