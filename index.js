@@ -1,26 +1,17 @@
 import {Cliente} from "./Cliente.js";
-import { Conta } from "./Contas/Conta.js";
-import {ContaCorrente} from "./Contas/ContaCorrente.js";
-import { ContaPoupanca } from "./Contas/ContaPoupanca.js";
-import { ContaSalario } from "./Contas/ContaSalario.js";
+import {Funcionario} from "./Funcionario/Funcionario.js";
+import {Gerente} from "./Funcionario/Gerente.js";
+import {Diretor} from "./Funcionario/Diretor.js";
+import {SysAuth} from "./SysAuth.js";
 
-let qtdeContas = 0;
 
-const c1 = new Cliente("Tonhao", 1061967239);
-const cco1 = new ContaCorrente(109916, 3271, c1);
+const gerente = new Gerente("Antonio", 1321351351, 10000);
+gerente.cadastraSenha("789456123");
 
-console.log(cco1);
+const diretor = new Diretor("Joao", 1321351351, 15000);
+diretor.cadastraSenha("321654987");
 
-const cp = new ContaPoupanca(1, c1, 60);
-cp.teste();
-
-const cco = new ContaCorrente(3271, c1);
-console.log(cco);
-
-// const conta = new Conta(2, c1, 150);
-
-const cs = new ContaSalario(c1);
-cs.depositar(100);
-cs.sacar(15);
-
-console.log(cs);
+let isLogged = SysAuth.login(diretor, "321654987");
+console.log(isLogged);
+isLogged = SysAuth.login(gerente, "789456123");
+console.log(isLogged);
